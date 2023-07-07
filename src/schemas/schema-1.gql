@@ -1,6 +1,8 @@
 type Query {
   meals: [Meal!]!
+  meal(id: ID!): Meal!
   categories: [Category!]!
+  category(id: ID!): Category!
 }
 
 type Meal {
@@ -15,4 +17,36 @@ type Category {
   id: ID!
   name: String
   meals: [Meal!]
+}
+
+type Mutation {
+  createCategory(input: CreateCategoryInput!): Category!
+  updateCategory(id: ID!, input: UpdateCategoryInput!): Category!
+  removeCategory(id: ID!): Category!
+
+  createMeal(input: CreateMealInput!): Meal!
+  updateMeal(id: ID!, input: UpdateMealInput!): Meal!
+  removeMeal(id: ID!): Meal!
+}
+
+input CreateCategoryInput {
+  name: String!
+}
+
+input UpdateCategoryInput {
+  name: String!
+}
+
+input CreateMealInput {
+  name: String!
+  price: Float!
+  quantity: Int!
+  category_id: Int!
+}
+
+input UpdateMealInput {
+  name: String
+  price: Float
+  quantity: Int
+  category_id: Int
 }

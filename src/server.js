@@ -3,17 +3,16 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { readFileSync } from "fs";
 
 /*------------------ task 1 --------------------*/
-/* import resolvers from "./tasks/task-1.js";
+import resolvers from "./tasks/task-1.js";
 const typeDefs = readFileSync("./src/schemas/schema-1.gql", "utf8");
- */
 
 /*------------------ task 2 --------------------*/
 /* import resolvers from "./tasks/task-2.js";
 const typeDefs = readFileSync("./src/schemas/schema-2.gql", "utf8"); */
 
-/*------------------ task 3 --------------------*/
-import resolvers from "./tasks/task-3.js";
-const typeDefs = readFileSync("./src/schemas/schema-3.gql", "utf8");
+// /*------------------ task 3 --------------------*/
+// import resolvers from "./tasks/task-3.js";
+// const typeDefs = readFileSync("./src/schemas/schema-3.gql", "utf8");
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
