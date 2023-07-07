@@ -1,6 +1,8 @@
 type Query {
   groups: [Group!]!
+  group(id: ID!): Group!
   users: [User!]!
+  user(id: ID!): User
 }
 
 type User {
@@ -14,4 +16,34 @@ type Group {
   id: ID!
   name: String
   users: [User!]!
+}
+
+type Mutation {
+  createGroup(input: CreateGroupInput!): Group!
+  updateGroup(id: ID!, input: UpdateGroupInput!): Group!
+  removeGroup(id: ID!): Group!
+
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  removeUser(id: ID!): User!
+}
+
+input CreateGroupInput {
+  name: String!
+}
+
+input UpdateGroupInput {
+  name: String!
+}
+
+input CreateUserInput {
+  first_name: String!
+  last_name: String!
+  group_id: Int!
+}
+
+input UpdateUserInput {
+  first_name: String
+  last_name: String
+  group_id: Int
 }
